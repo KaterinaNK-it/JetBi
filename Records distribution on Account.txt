@@ -1,0 +1,7 @@
+List<Account> acc = [SELECT Id FROM Account LIMIT 5];
+List<Order__c> orders = new List<Order__c>();
+for (Integer i = 0; i < 40; i++) {
+  Order__c order = new Order__c (Total_Amount__c=10000, Payment_Due_Date__c=Date.newInstance(2021, 11, 11), Account__c=acc[0].Id);
+orders.add(order);
+}
+insert orders;
